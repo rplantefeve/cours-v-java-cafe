@@ -67,7 +67,7 @@ public class FactureDAO extends MainDAO
                 // je remplis la liste avec l'objet métier conso créé ci-dessus
                 Facture facture = new Facture(rs.getInt("numFac"), rs.getDate("dateFac"));
                 facture.setEnregistrements(enregs);
-                facture.setServeur(MainCafeDatabase.serveurs.get(rs.getString("matricule")));
+                facture.setServeur(MainCafeDatabase.serveurs.get(rs.getString("numSer")));
                 facture.setTable(MainCafeDatabase.tables.get(rs.getInt("numTab")));
                 liste.put(rs.getInt("numFac"), facture);
             }
