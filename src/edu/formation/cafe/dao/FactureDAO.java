@@ -10,8 +10,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
-
 import edu.formation.cafe.controllers.MainCafeDatabase;
 import edu.formation.cafe.models.Enregistrement;
 import edu.formation.cafe.models.Facture;

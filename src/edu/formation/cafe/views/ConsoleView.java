@@ -5,14 +5,9 @@ package edu.formation.cafe.views;
 
 import java.io.IOException;
 import java.io.PrintStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Iterator;
-import java.util.Scanner;
 
 import edu.formation.cafe.controllers.MainCafeDatabase;
-import edu.formation.cafe.models.Serveur;
 
 /**
  * @author Seme

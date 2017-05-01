@@ -7,11 +7,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import edu.formation.cafe.controllers.MainCafeDatabase;
-import edu.formation.cafe.models.Consommation;
 import edu.formation.cafe.models.Table;
 
 /**
