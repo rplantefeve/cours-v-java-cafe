@@ -7,13 +7,14 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import edu.formation.cafe.models.Serveur;
 
 /**
  * @author Seme
- *
  */
 public class ServeurDAO extends MainDAO
 {
@@ -59,12 +60,14 @@ public class ServeurDAO extends MainDAO
             while (rs.next())
             {
                 // on récupère le numéro de sécu
-                String numSecu = this.employeDAO.getNumSecu(rs.getString("matricule"));
+                String numSecu = this.employeDAO
+                        .getNumSecu(rs.getString("matricule"));
                 // je remplis la liste avec l'objet métier conso créé ci-dessus
                 liste.put(rs.getString("matricule"),
                         new Serveur(rs.getString("matricule"), numSecu,
                                 rs.getString("nom"), rs.getString("adresse"),
-                                rs.getDate("dateEmbauche"), rs.getString("courriel")));
+                                rs.getDate("dateEmbauche"),
+                                rs.getString("courriel")));
             }
         }
         catch (SQLException e)
@@ -85,13 +88,9 @@ public class ServeurDAO extends MainDAO
             /*
              * Etape 3 : Instanciation du Statement
              */
-            stmt = this.connexion.prepareStatement(
-                    "UPDATE serveur SET " +
-                            "nom = ?, " +
-                            "adresse = ?, " +
-                            "dateEmbauche = ?, " +
-                            "courriel = ?"
-                            + " WHERE matricule = ?");
+            stmt = this.connexion.prepareStatement("UPDATE serveur SET "
+                    + "nom = ?, " + "adresse = ?, " + "dateEmbauche = ?, "
+                    + "courriel = ?" + " WHERE matricule = ?");
             stmt.setString(1, nom);
             stmt.setString(2, adresse);
             stmt.setDate(3, new java.sql.Date(dateEmbauche.getTime()));
@@ -107,5 +106,48 @@ public class ServeurDAO extends MainDAO
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    /**
+     * @return
+     */
+    public List<Serveur> findAll()
+    {
+        // je crée une liste vide
+        List<Serveur> liste = new ArrayList<>();
+
+        Statement stmt;
+        try
+        {
+            /*
+             * Etape 3 : Instanciation du Statement
+             */
+            stmt = this.connexion.createStatement();
+            /*
+             * Etape 4bis : exécuter une requête
+             */
+            ResultSet rs = stmt.executeQuery("SELECT * FROM serveur");
+
+            /*
+             * Etape 5 : parcours des résultats
+             */
+            while (rs.next())
+            {
+                // on récupère le numéro de sécu
+                String numSecu = this.employeDAO
+                        .getNumSecu(rs.getString("matricule"));
+                // je remplis la liste avec l'objet métier conso créé ci-dessus
+                liste.add(new Serveur(rs.getString("matricule"), numSecu,
+                        rs.getString("nom"), rs.getString("adresse"),
+                        rs.getDate("dateEmbauche"), rs.getString("courriel")));
+            }
+        }
+        catch (SQLException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        // je retourne la liste des serveurs
+        return liste;
     }
 }

@@ -1,5 +1,6 @@
 package edu.formation.cafe.controllers;
 
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,6 +20,7 @@ import edu.formation.cafe.models.Facture;
 import edu.formation.cafe.models.Serveur;
 import edu.formation.cafe.models.Table;
 import edu.formation.cafe.views.ConsoleView;
+import edu.formation.cafe.views.ServeurFrame;
 
 public class MainCafeDatabase
 {
@@ -34,6 +36,7 @@ public class MainCafeDatabase
      * Liste des vues
      */
     public static ConsoleView console = new ConsoleView();
+    
 
     public static void main(String[] args) throws ParseException
     {
@@ -55,7 +58,7 @@ public class MainCafeDatabase
             /*
              * Etape 2 : Connexion à la base de données
              */
-            Connection conn = DriverManager.getConnection("jdbc:mysql://192.168.56.101:3306/cafe", "user", "user");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cafe", "user", "user");
 
             /*
              * Initialiser mes objets DAO
@@ -64,6 +67,8 @@ public class MainCafeDatabase
             serveurDAO = new ServeurDAO(conn);
             tableDAO = new TableDAO(conn);
             factureDAO = new FactureDAO(conn);
+            
+            ServeurFrame serveurFrame = new ServeurFrame(serveurDAO);
 
             // je peux faire appel à ses services
             // je souhaite récupérer toutes les consommations
