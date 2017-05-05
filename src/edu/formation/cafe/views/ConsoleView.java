@@ -96,7 +96,6 @@ public class ConsoleView
     public void displayFactures()
     {
         String fmtEntete = "| %1$-3s|       %2$-15s| %6$-6s|       %3$-15s| %4$-7s| %5$-6s|%n";
-        String fmt = "| %1$-25s|";
         String separateur = "+---------------------------------------------------------------------------+\n";
         PrintStream console = System.out;
         console.printf("%s", separateur);

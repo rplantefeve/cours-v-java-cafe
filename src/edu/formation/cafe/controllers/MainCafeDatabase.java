@@ -58,7 +58,7 @@ public class MainCafeDatabase
             /*
              * Etape 2 : Connexion à la base de données
              */
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cafe", "user", "user");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cafe_old", "user", "password");
 
             /*
              * Initialiser mes objets DAO
