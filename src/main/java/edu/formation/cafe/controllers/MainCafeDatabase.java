@@ -49,8 +49,8 @@ public class MainCafeDatabase {
     try {
       /*
        * Etape 1 : chargement du pilote JDBC MySQL Update: plus besoin de faire cela depuis la
-       * version 8.0 du connecteur (passage de la v5.1 à 8.0 directement)
-       * De plus, le nom de la classe a changé : com.mysql.cj.jdbc.Driver
+       * version 8.0 du connecteur (passage de la v5.1 à 8.0 directement) De plus, le nom de la
+       * classe a changé : com.mysql.cj.jdbc.Driver
        */
       // Class.forName("com.mysql.jdbc.Driver");
 

@@ -9,100 +9,86 @@ import java.util.Date;
  * @author Seme
  *
  */
-public class Serveur extends Employe
-{
-    private String nom;
-    private String adresse;
-    private Date dateEmbauche;
-    private String email;
+public class Serveur extends Employe {
+  private String nom;
+  private String adresse;
+  private Date dateEmbauche;
+  private String email;
 
-    /**
-     * @param matricule
-     * @param numSecu
-     * @param nom
-     * @param adresse
-     * @param dateEmbauche
-     * @param email
-     */
-    public Serveur(String matricule, String numSecu, String nom, String adresse, Date dateEmbauche, String email)
-    {
-        super(matricule, numSecu);
-        this.nom = nom;
-        this.adresse = adresse;
-        this.dateEmbauche = dateEmbauche;
-        this.email = email;
-    }
-    
-    /**
-     * @return the nom
-     */
-    public String getNom()
-    {
-        return nom;
-    }
+  /**
+   * @param matricule
+   * @param numSecu
+   * @param nom
+   * @param adresse
+   * @param dateEmbauche
+   * @param email
+   */
+  public Serveur(String matricule, String numSecu, String nom, String adresse, Date dateEmbauche,
+      String email) {
+    super(matricule, numSecu);
+    this.nom = nom;
+    this.adresse = adresse;
+    this.dateEmbauche = dateEmbauche;
+    this.email = email;
+  }
 
-    /**
-     * @param nom
-     *            the nom to set
-     */
-    public void setNom(String nom)
-    {
-        this.nom = nom;
-    }
+  /**
+   * @return the nom
+   */
+  public String getNom() {
+    return nom;
+  }
 
-    /**
-     * @return the adresse
-     */
-    public String getAdresse()
-    {
-        return adresse;
-    }
+  /**
+   * @param nom the nom to set
+   */
+  public void setNom(String nom) {
+    this.nom = nom;
+  }
 
-    /**
-     * @param adresse
-     *            the adresse to set
-     */
-    public void setAdresse(String adresse)
-    {
-        this.adresse = adresse;
-    }
+  /**
+   * @return the adresse
+   */
+  public String getAdresse() {
+    return adresse;
+  }
 
-    /**
-     * @return the dateEmbauche
-     */
-    public Date getDateEmbauche()
-    {
-        return dateEmbauche;
-    }
+  /**
+   * @param adresse the adresse to set
+   */
+  public void setAdresse(String adresse) {
+    this.adresse = adresse;
+  }
 
-    /**
-     * @param dateEmbauche
-     *            the dateEmbauche to set
-     */
-    public void setDateEmbauche(Date dateEmbauche)
-    {
-        this.dateEmbauche = dateEmbauche;
-    }
+  /**
+   * @return the dateEmbauche
+   */
+  public Date getDateEmbauche() {
+    return dateEmbauche;
+  }
 
-    /**
-     * @return the email
-     */
-    public String getEmail()
-    {
-        return email;
-    }
+  /**
+   * @param dateEmbauche the dateEmbauche to set
+   */
+  public void setDateEmbauche(Date dateEmbauche) {
+    this.dateEmbauche = dateEmbauche;
+  }
 
-    /**
-     * @param email
-     *            the email to set
-     */
-    public void setEmail(String email)
-    {
-        this.email = email;
-    }
+  /**
+   * @return the email
+   */
+  public String getEmail() {
+    return email;
+  }
 
-    public String toString()
-    {
-        return this.matricule + " | " + this.nom;
-    }
+  /**
+   * @param email the email to set
+   */
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String toString() {
+    return this.matricule + " | " + this.nom;
+  }
 }

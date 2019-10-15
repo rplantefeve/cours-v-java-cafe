@@ -17,44 +17,40 @@ import edu.formation.cafe.models.Enregistrement;
  * @author Seme
  *
  */
-public class EnregistrementDAO extends MainDAO
-{
+public class EnregistrementDAO extends MainDAO {
 
-    /**
-     * @param uneConnexion
+  /**
+   * @param uneConnexion
+   */
+  public EnregistrementDAO(Connection uneConnexion) {
+    super(uneConnexion);
+    // TODO Auto-generated constructor stub
+  }
+
+  private Consommation getConsommationEnregistrement(int numConso) {
+    return MainCafeDatabase.consommations.get(numConso);
+  }
+
+  public ArrayList<Enregistrement> getEnregistrementsFacture(int numFac) throws SQLException {
+    ArrayList<Enregistrement> enregs = new ArrayList<Enregistrement>();
+    /*
+     * Etape 3 : Instanciation du Statement
      */
-    public EnregistrementDAO(Connection uneConnexion)
-    {
-        super(uneConnexion);
-        // TODO Auto-generated constructor stub
-    }
+    Statement stmt = this.connexion.createStatement();
+    /*
+     * Etape 4bis : exécuter une requête
+     */
+    ResultSet rs = stmt.executeQuery("SELECT * FROM enregistrement WHERE numFac = " + numFac);
 
-    private Consommation getConsommationEnregistrement(int numConso)
-    {
-        return MainCafeDatabase.consommations.get(numConso);
+    /*
+     * Etape 5 : parcours des résultats
+     */
+    while (rs.next()) {
+      enregs.add(
+          new Enregistrement(rs.getInt("quantite"),
+              this.getConsommationEnregistrement(rs.getInt("numCon"))));
     }
-
-    public ArrayList<Enregistrement> getEnregistrementsFacture(int numFac) throws SQLException
-    {
-        ArrayList<Enregistrement> enregs = new ArrayList<Enregistrement>();
-        /*
-         * Etape 3 : Instanciation du Statement
-         */
-        Statement stmt = this.connexion.createStatement();
-        /*
-         * Etape 4bis : exécuter une requête
-         */
-        ResultSet rs = stmt.executeQuery("SELECT * FROM enregistrement WHERE numFac = " + numFac);
-
-        /*
-         * Etape 5 : parcours des résultats
-         */
-        while (rs.next())
-        {
-            enregs.add(
-                    new Enregistrement(rs.getInt("quantite"), this.getConsommationEnregistrement(rs.getInt("numCon"))));
-        }
-        return enregs;
-    }
+    return enregs;
+  }
 
 }

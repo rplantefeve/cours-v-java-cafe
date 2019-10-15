@@ -24,33 +24,29 @@ import edu.formation.cafe.models.ServeurModel;
 /**
  * @author Seme
  */
-public class ServeurFrame extends JFrame
-{
-    private JScrollPane jsp;
-    private JButton jBValider = new JButton("Peupler");
-    private JTable jTableEtudiants;
-    private JPanel jpN = new JPanel();
-    private ServeurModel model;
+public class ServeurFrame extends JFrame {
+  private JScrollPane jsp;
+  private JButton jBValider = new JButton("Peupler");
+  private JTable jTableEtudiants;
+  private JPanel jpN = new JPanel();
+  private ServeurModel model;
 
-    public ServeurFrame(ServeurDAO serveurDAO)
-    {
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.setLayout(new BorderLayout());
-        jpN.setLayout(new FlowLayout());
-        jpN.add(jBValider);
-        this.add(jpN, BorderLayout.NORTH);
-        model = new ServeurModel();
-        jTableEtudiants = new JTable(model);
-        jsp = new JScrollPane(jTableEtudiants);
-        this.add(jsp, BorderLayout.CENTER);
-        this.setBounds(10, 10, 500, 500);
-        this.setVisible(true);
-        jBValider.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                model.setData(serveurDAO.findAll());
-            }
-        });
-    }
+  public ServeurFrame(ServeurDAO serveurDAO) {
+    this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    this.setLayout(new BorderLayout());
+    jpN.setLayout(new FlowLayout());
+    jpN.add(jBValider);
+    this.add(jpN, BorderLayout.NORTH);
+    model = new ServeurModel();
+    jTableEtudiants = new JTable(model);
+    jsp = new JScrollPane(jTableEtudiants);
+    this.add(jsp, BorderLayout.CENTER);
+    this.setBounds(10, 10, 500, 500);
+    this.setVisible(true);
+    jBValider.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        model.setData(serveurDAO.findAll());
+      }
+    });
+  }
 }

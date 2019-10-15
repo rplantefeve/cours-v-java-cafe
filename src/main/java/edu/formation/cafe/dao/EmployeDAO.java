@@ -12,34 +12,32 @@ import java.sql.Statement;
  * @author Seme
  *
  */
-public class EmployeDAO extends MainDAO
-{
+public class EmployeDAO extends MainDAO {
 
-    /**
-     * @param uneConnexion
+  /**
+   * @param uneConnexion
+   */
+  public EmployeDAO(Connection uneConnexion) {
+    super(uneConnexion);
+    // TODO Auto-generated constructor stub
+  }
+
+  public String getNumSecu(String matricule) throws SQLException {
+    /*
+     * Etape 3 : Instanciation du Statement
      */
-    public EmployeDAO(Connection uneConnexion)
-    {
-        super(uneConnexion);
-        // TODO Auto-generated constructor stub
-    }
+    Statement stmt = this.connexion.createStatement();
+    /*
+     * Etape 4bis : exécuter une requête
+     */
+    ResultSet rs =
+        stmt.executeQuery("SELECT numSecu FROM employe WHERE matricule = '" + matricule + "'");
 
-    public String getNumSecu(String matricule) throws SQLException
-    {
-        /*
-         * Etape 3 : Instanciation du Statement
-         */
-        Statement stmt = this.connexion.createStatement();
-        /*
-         * Etape 4bis : exécuter une requête
-         */
-        ResultSet rs = stmt.executeQuery("SELECT numSecu FROM employe WHERE matricule = '" + matricule + "'");
-
-        /*
-         * Etape 5 : parcours des résultats
-         */
-        rs.next();
-        return rs.getString("numSecu");
-    }
+    /*
+     * Etape 5 : parcours des résultats
+     */
+    rs.next();
+    return rs.getString("numSecu");
+  }
 
 }
