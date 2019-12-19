@@ -3,11 +3,14 @@
  */
 package edu.formation.cafe.models;
 
+import java.io.Serializable;
+
 /**
  * @author Seme
  *
  */
-public class Consommation {
+public class Consommation implements Serializable {
+  private static final long serialVersionUID = 6895111017326333387L;
   /**
    * Le libellé de la consommation
    */
@@ -22,6 +25,8 @@ public class Consommation {
   private int numero;
 
   /**
+   * 
+   * @param numero
    * @param libelle
    * @param prix
    */
@@ -73,6 +78,10 @@ public class Consommation {
     this.prix = prix;
   }
 
+  /**
+   * 
+   */
+  @Override
   public String toString() {
     // taille totale = 29
     return String.format("%1$-20s | %2$-6s", this.libelle, this.prix + "€");
