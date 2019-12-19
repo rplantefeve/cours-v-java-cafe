@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.formation.cafe.models;
+package edu.formation.cafe;
 
 import java.util.ArrayList;
 import java.util.Date;

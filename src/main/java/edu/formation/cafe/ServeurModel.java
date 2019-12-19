@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.formation.cafe.models;
+package edu.formation.cafe;
 
 import java.util.List;
 import java.util.Vector;

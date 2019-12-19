@@ -1,4 +1,4 @@
-package edu.formation.cafe.models;
+package edu.formation.cafe;
 
 /**
  * Classe Employe
